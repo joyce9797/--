@@ -224,12 +224,17 @@
     z-index: 1;
 }
 
+/* 當對話框隱藏時，隱藏對話框本體 */
 #對話框.hide-dialog {
     display: none !important;
 }
-#player-text.hide-dialog {
+
+/* 💡 新增這段：當對話框隱藏時，SVG 名字標籤也一併隱藏 */
+#對話框.hide-dialog ~ .player-svg,
+.dialog-wrapper:has(#對話框.hide-dialog) .player-svg {
     display: none !important;
 }
+
 #對話框那條線 {
     position: absolute;
     top: 240px;
@@ -693,7 +698,7 @@
     },
     {
         id: 9,
-        text: "我是{playerName}•星辰，剛來到這個地方。",
+        text: "我是{playerName}．星辰，剛來到這個地方。",
         speaker: "玩家",
         characters: ["星辰微笑"],
     },
